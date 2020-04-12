@@ -1,3 +1,3 @@
 dependencies = ['torch']
 
-from src.models.tresnet import TResnetM, TResnetL, 
+from src.models.tresnet import TResnetM, TResnetL, TResnetXL

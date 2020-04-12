@@ -23,8 +23,10 @@ def tresnet_m(pretrained=False, num_classes=1000, remove_aa_jit=False):
   })
   
   if pretrained:
-    model.load_state_dict(torch.hub.load_state_dict_from_url(
-      tresnet_model_urls['tresnet_m'], progress=True))
+    model_load_path = '/home/.cache/torch/checkpoints/tresnet_m.pth'
+    torch.hub.download_url_to_file(tresnet_model_urls['tresnet_m'], model_load_path, progress=True)
+    pretrained = torch.load(model_load_path)['model']
+    model.load_state_dict(pretrained)
   
   return model 
   
